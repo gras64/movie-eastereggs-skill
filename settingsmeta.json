@@ -1,0 +1,22 @@
+{
+
+  "skillMetadata": {
+      "sections": [
+          {
+              "name": "Sentence converter",
+              "fields": [
+                  {
+                        "type": "label",
+                        "label": "utter for normal light switch (switch light livingroom)"
+                  },
+                  {
+                        "name": "lumus",
+                        "type": "text",
+                        "label": "Switch on light in livingroom",
+                        "value": ""
+                  }
+              ]
+          }
+      ]
+  }
+}

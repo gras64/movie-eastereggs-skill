@@ -1,9 +1,19 @@
 from mycroft import MycroftSkill, intent_file_handler
+from mycroft.messagebus import Message
 
 
 class MovieEastereggs(MycroftSkill):
     def __init__(self):
         MycroftSkill.__init__(self)
+
+    def initialize(self):
+        self.settings_change_callback = self.on_settings_changed
+        self.on_settings_changed()
+
+    def on_settings_changed(self):    
+        self.lumus_ex = self.settings.get('lumus', False) 
+                #self.lumus_ex = "schalte schlafzimmerlicht ein"
+        self.log.info("lumus "+str(self.lumus_ex))
 
 # Game of Thrones
 
@@ -15,7 +25,12 @@ class MovieEastereggs(MycroftSkill):
 
     @intent_file_handler('lumus.intent')
     def handle_lumus(self, message):
-        self.speak_dialog('lumus')
+        self.log.info("lumus "+str(self.lumus_ex))
+        if not self.lumus_ex:
+             self.speak_dialog('lumus.error')
+        else:
+            self.lumus()
+            #self.speak_dialog('lumus')
 
     @intent_file_handler('obliviate.intent')
     def handle_forgott(self, message):
@@ -62,6 +77,14 @@ class MovieEastereggs(MycroftSkill):
     @intent_file_handler('big.question.intent')
     def handle_big_question(self, message):
         self.speak_dialog('big.question')
+
+    
+## features    
+    def lumus(self):
+        self.bus.emit(Message('recognizer_loop:utterance',
+                            {"utterances": [self.lumus_ex]}))
+
+
 
 
 def create_skill():
