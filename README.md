@@ -8,7 +8,7 @@
 * "Vala morgulis"
 
 ## Credits
-whether Harry potter or game of thrones. the skill contains a lot of funny easterreggsgras64
+whether Harry potter or game of thrones. the skill contains a lot of funny easterregg
 
 ## Category
 **Entertainment**
