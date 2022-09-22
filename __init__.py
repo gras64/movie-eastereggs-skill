@@ -48,6 +48,11 @@ class MovieEastereggs(MycroftSkill):
     def handle_fly(self, message):
         self.speak_dialog('levitation.charm')
 
+    @intent_file_handler('silencio.intent')
+    def handle_silencio(self, message):
+        self.bus.emit(Message('recognizer_loop:sleep'))
+        self.speak_dialog('sleep')
+
 # Rambo III
 
     @intent_file_handler('What.is.that.intent')
