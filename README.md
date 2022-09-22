@@ -6,6 +6,9 @@
 
 ## Examples
 * "Vala morgulis"
+#Harry Potter
+* "lumus"
+* "Obliviate"
 
 ## Credits
 whether Harry potter or game of thrones. the skill contains a lot of funny easterregg
