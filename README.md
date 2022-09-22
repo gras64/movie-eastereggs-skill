@@ -21,6 +21,9 @@
 * "why do i need a towel"
 * "what is the answer to the big question"
 
+## Config
+you can enter a conversion sentence for lumus on home.mycroft if you have FHEM or Homassistant. for example "switch on the light in the bedroom" this is then carried out via messagebuss. let me know if you have a better idea
+
 ## Credits
 whether Harry potter or game of thrones. the skill contains a lot of funny easterregg
 
