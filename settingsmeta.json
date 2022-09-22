@@ -14,6 +14,12 @@
                         "type": "text",
                         "label": "Switch on light in livingroom",
                         "value": ""
+                  },
+                  {
+                        "name": "nox",
+                        "type": "text",
+                        "label": "Switch off light in livingroom",
+                        "value": ""
                   }
               ]
           }

@@ -12,6 +12,7 @@ class MovieEastereggs(MycroftSkill):
 
     def on_settings_changed(self):    
         self.lumus_ex = self.settings.get('lumus', False) 
+        self.nox_ex = self.settings.get('nox', False) 
                 #self.lumus_ex = "schalte schlafzimmerlicht ein"
         self.log.info("lumus "+str(self.lumus_ex))
 
@@ -29,7 +30,14 @@ class MovieEastereggs(MycroftSkill):
         if not self.lumus_ex:
              self.speak_dialog('lumus.error')
         else:
-            self.lumus()
+            self.lumus(True)
+    @intent_file_handler('nox.intent')
+    def handle_nox(self, message):
+        self.log.info("nox "+str(self.lumus_ex))
+        if not self.nox_ex:
+             self.speak_dialog('lumus.error')
+        else:
+            self.lumus(False)
             #self.speak_dialog('lumus')
 
     @intent_file_handler('obliviate.intent')
@@ -80,9 +88,13 @@ class MovieEastereggs(MycroftSkill):
 
     
 ## features    
-    def lumus(self):
-        self.bus.emit(Message('recognizer_loop:utterance',
+    def lumus(self, nox):
+        if nox:
+            self.bus.emit(Message('recognizer_loop:utterance',
                             {"utterances": [self.lumus_ex]}))
+        else:
+            self.bus.emit(Message('recognizer_loop:utterance',
+                            {"utterances": [self.nox_ex]}))
 
 
 
